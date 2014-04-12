@@ -7,7 +7,6 @@
 //
 
 #import "InboxViewControllerTableViewController.h"
-#import <Parse/Parse.h>
 
 @interface InboxViewControllerTableViewController ()
 
@@ -19,14 +18,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    PFUser *currentUser = [PFUser currentUser];
+    /*PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         NSLog(@"Current User: %@", currentUser.username);
         
     }
     else {
         [self performSegueWithIdentifier:@"showLogin" sender:self];
-    }
+    }*/
    
 
 }
@@ -50,7 +49,7 @@
 
 
 - (IBAction)logout:(id)sender {
-    [PFUser logOut];
+    //[PFUser logOut];
     [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
 

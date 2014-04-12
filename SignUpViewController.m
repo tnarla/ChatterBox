@@ -7,7 +7,6 @@
 //
 
 #import "SignUpViewController.h"
-#import <Parse/Parse.h>
 
 @interface SignUpViewController ()
 
@@ -37,7 +36,7 @@
         [alertView show];
     }
     else {
-        PFUser *newUser = [PFUser user];
+        /*PFUser *newUser = [PFUser user];
         newUser.username = username;
         newUser.password = password;
         newUser.email = email;
@@ -50,7 +49,7 @@
             else {
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
-        }];
+        }];*/
     }
 }
 @end

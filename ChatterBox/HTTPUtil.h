@@ -12,8 +12,11 @@
 {
     NSMutableData* responseData;
     void (^_callback)(NSString*);
+    void (^_dCallback)(NSData*);
 }
-- (void)getHTTP:(NSString*)url withParams:(NSString*)params withCallback:(void (^)(NSString*))callback;
-- (void)postHTTP:(NSString*)url withParams:(NSString*)params withCallback:(void (^)(NSString*))callback;
+- (void)getHTTPString:(NSString*)url withParams:(NSString*)params withCallback:(void (^)(NSString*))callback;
+- (void)postHTTPString:(NSString*)url withParams:(NSString*)params withCallback:(void (^)(NSString*))callback;
+- (void)getHTTP:(NSString*)url withParams:(NSString*)params withCallback:(void (^)(NSData*))callback;
+- (void)postHTTP:(NSString*)url withParams:(NSString*)params withCallback:(void (^)(NSData*))callback;
 
 @end

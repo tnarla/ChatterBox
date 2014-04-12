@@ -1,18 +1,18 @@
 //
-//  ChainTableViewController.m
+//  FriendsTableViewController.m
 //  ChatterBox
 //
 //  Created by Stephen Sulivan on 4/12/14.
 //  Copyright (c) 2014 Trushitha Narla. All rights reserved.
 //
 
-#import "ChainTableViewController.h"
+#import "FriendsTableViewController.h"
 
-@interface ChainTableViewController ()
+@interface FriendsTableViewController ()
 
 @end
 
-@implementation ChainTableViewController
+@implementation FriendsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,13 +26,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    chains = [NSArray arrayWithObjects:@"A",@"B",@"C", nil];
-    titles = [NSArray arrayWithObjects:@"Waiting on You",@"Waiting on a Friend",@"Finished", nil];
+    HTTPUtil* util = [HTTPUtil new];
+    NSString* params = [NSString stringWithFormat:@"access_token=%@",[[[FBSession activeSession] accessTokenData] accessToken]];
+    [util getHTTP:@"https://graph.facebook.com/me/friends" withParams:params withCallback:^(NSData* data) {
+        NSDictionary* fbResp = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        friends = [fbResp objectForKey:@"data"];
+        NSLog(@"%@",[friends objectAtIndex:0]);
+        for (NSDictionary* friend in friends) {
+            NSLog(@"PPPPPP");
+            pics = [NSMutableArray new];
+            HTTPUtil* util = [HTTPUtil new];
+            NSString* url = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture",[friend objectForKey:@"id"]];
+            [util getHTTP:url withParams:@"" withCallback:^(NSData* data) {
+                [pics addObject:[UIImage imageWithData:data]];
+                NSLog(@"%@",pics);
+            }];
+        }
+    }];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (IBAction)reload:(id)sender {
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,18 +65,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 3;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    // The header for the section is the region name -- get this from the region at the section index.
-    return [titles objectAtIndex:section];
+    return [friends count];
 }
 
 - (float)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath {
@@ -66,28 +80,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *MyIdentifier = @"MyReuseIdentifier";
+    static NSString *MyIdentifier = @"MyReuseId";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
     }
-    UIImage* image = [UIImage imageNamed:@"face.png"];
+    
+    cell.imageView.image = [pics objectAtIndex:indexPath.row];
     cell.imageView.layer.cornerRadius = 25;
     cell.imageView.layer.masksToBounds = YES;
-    cell.imageView.image = image;
-    UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(25, 0, 50, 50)];
-    
-    image = [UIImage imageNamed:@"face2.png"];
-    view.layer.cornerRadius = 25;
-    view.layer.masksToBounds = YES;
-    [view setContentMode:UIViewContentModeScaleAspectFit];
-    [view setImage:image];
-    [cell addSubview:view];
-    
-    //cell.textLabel.text = [chains objectAtIndex:indexPath.row];
+    [cell setBackgroundColor:[UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:0.0f]];
+    cell.textLabel.text = [[friends objectAtIndex:indexPath.row] objectForKey:@"name"];
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.

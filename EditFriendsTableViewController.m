@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    PFQuery *query = [PFUser query];
+    /*PFQuery *query = [PFUser query];
     [query orderByAscending:@"username"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
@@ -32,7 +32,7 @@
         }
     }];
     
-    self.currentUser = [PFUser currentUser];
+    self.currentUser = [PFUser currentUser];*/
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -60,7 +60,7 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    /*
     PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
     cell.textLabel.text = user.username;
     
@@ -69,7 +69,7 @@
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+    }*/
     
     return cell;
 }
@@ -79,7 +79,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     UITableViewCell *cell  = [tableView cellForRowAtIndexPath:indexPath];
    
-    PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
+    /*PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
     PFRelation *friendsRelation = [self.currentUser relationForKey:@"friendsRelation"];
    
     if ([self isFriend:user]){
@@ -104,13 +104,13 @@
         if (error){
             NSLog(@"Error %@ %@", error, [error userInfo]);
         }
-    }];
+    }];*/
     
 }
 
 #pragma mark - Helper methods
 
-- (BOOL)isFriend:(PFUser *)user
+/*- (BOOL)isFriend:(PFUser *)user
 {
     for (PFUser *friend in self.friends){
         if ([friend.objectId isEqualToString:user.objectId]){
@@ -118,7 +118,7 @@
         }
     }
     return NO;
-}
+}*/
 
 @end
 
