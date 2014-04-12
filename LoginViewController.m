@@ -20,7 +20,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.hidesBackButton = YES;
 }
 
 
@@ -51,8 +50,10 @@
         HTTPUtil* util = [HTTPUtil new];
         [util getHTTP:@"http://httpbin.org/get" withParams:@"EVAN=BITCH" withCallback:^(NSString* string){
             NSLog(@"%@",string);
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }];
     }
-
 }
+
+
 @end

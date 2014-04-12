@@ -42,6 +42,9 @@
 		8AB8EF9D18EA693F00E40AD0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8EF9C18EA693F00E40AD0 /* LoginViewController.m */; };
 		8AB8EFA018EA695500E40AD0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8EF9F18EA695500E40AD0 /* SignUpViewController.m */; };
 		E502E72A18F906CA00A41C96 /* HTTPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E502E72918F906CA00A41C96 /* HTTPUtil.m */; };
+		E502E72D18F9B7B500A41C96 /* ChainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E502E72C18F9B7B500A41C96 /* ChainTableViewController.m */; };
+		E502E73018F9BCC100A41C96 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = E502E72E18F9BCC100A41C96 /* face.png */; };
+		E502E73118F9BCC100A41C96 /* face2.png in Resources */ = {isa = PBXBuildFile; fileRef = E502E72F18F9BCC100A41C96 /* face2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,10 @@
 		8AB8EF9F18EA695500E40AD0 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = ../SignUpViewController.m; sourceTree = "<group>"; };
 		E502E72818F906CA00A41C96 /* HTTPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPUtil.h; sourceTree = "<group>"; };
 		E502E72918F906CA00A41C96 /* HTTPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPUtil.m; sourceTree = "<group>"; };
+		E502E72B18F9B7B500A41C96 /* ChainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainTableViewController.h; sourceTree = "<group>"; };
+		E502E72C18F9B7B500A41C96 /* ChainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainTableViewController.m; sourceTree = "<group>"; };
+		E502E72E18F9BCC100A41C96 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = ChatterBox/face.png; sourceTree = "<group>"; };
+		E502E72F18F9BCC100A41C96 /* face2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face2.png; path = ChatterBox/face2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +204,8 @@
 				8AB8EF4D18EA4FCA00E40AD0 /* Supporting Files */,
 				E502E72818F906CA00A41C96 /* HTTPUtil.h */,
 				E502E72918F906CA00A41C96 /* HTTPUtil.m */,
+				E502E72B18F9B7B500A41C96 /* ChainTableViewController.h */,
+				E502E72C18F9B7B500A41C96 /* ChainTableViewController.m */,
 			);
 			path = ChatterBox;
 			sourceTree = "<group>";
@@ -233,6 +242,8 @@
 		8AB8EF8318EA51F100E40AD0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E502E72E18F9BCC100A41C96 /* face.png */,
+				E502E72F18F9BCC100A41C96 /* face2.png */,
 				8AB8EF7718EA51E000E40AD0 /* camera.png */,
 				8AB8EF7818EA51E000E40AD0 /* camera@2x.png */,
 				8AB8EF7918EA51E000E40AD0 /* friends.png */,
@@ -324,9 +335,11 @@
 				8AB8EF7618EA4FEF00E40AD0 /* MainStoryboard.storyboard in Resources */,
 				8AB8EF7F18EA51E000E40AD0 /* friends.png in Resources */,
 				8AB8EF8018EA51E000E40AD0 /* friends@2x.png in Resources */,
+				E502E73118F9BCC100A41C96 /* face2.png in Resources */,
 				8AB8EF7E18EA51E000E40AD0 /* camera@2x.png in Resources */,
 				8AB8EF8118EA51E000E40AD0 /* inbox.png in Resources */,
 				8AB8EF5118EA4FCA00E40AD0 /* InfoPlist.strings in Resources */,
+				E502E73018F9BCC100A41C96 /* face.png in Resources */,
 				8AB8EF7D18EA51E000E40AD0 /* camera.png in Resources */,
 				8AB8EF5918EA4FCA00E40AD0 /* Images.xcassets in Resources */,
 				8AB8EF8218EA51E000E40AD0 /* inbox@2x.png in Resources */,
@@ -348,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E502E72D18F9B7B500A41C96 /* ChainTableViewController.m in Sources */,
 				8AB8EF9D18EA693F00E40AD0 /* LoginViewController.m in Sources */,
 				8AB8EFA018EA695500E40AD0 /* SignUpViewController.m in Sources */,
 				8A43C06F18EB8E2200CE10BD /* FriendsViewController.m in Sources */,
