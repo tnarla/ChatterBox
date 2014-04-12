@@ -1,7 +1,7 @@
 //
 //  FriendsViewController.m
 //  ChatterBox
-//
+//  
 //  Created by Trushitha Narla on 4/1/14.
 //  Copyright (c) 2014 Trushitha Narla. All rights reserved.
 //
