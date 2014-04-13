@@ -1,0 +1,32 @@
+//
+//  LoginViewController.h
+//  ChatterBox
+//
+//  Created by Trushitha Narla on 3/31/14.
+//  Copyright (c) 2014 Trushitha Narla. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
+
+<<<<<<< HEAD
+@interface LoginViewController : UIViewController <UITextFieldDelegate,NSURLConnectionDelegate>
+=======
+@interface LoginViewController : UIViewController <UITextFieldDelegate,FBLoginViewDelegate>
+>>>>>>> f013bd22889bbf96ed2f71c8642b3253502fb9a6
+{
+    NSMutableData *responseData;
+}
+
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+<<<<<<< HEAD
+=======
+@property (weak, nonatomic) IBOutlet UIImageView *profPic;
+@property (strong, nonatomic) IBOutlet FBLoginView *loginView;
+>>>>>>> f013bd22889bbf96ed2f71c8642b3253502fb9a6
+
+- (BOOL)textFieldShouldReturn: (UITextField *)textField;
+- (IBAction)login:(id)sender;
+
+@end
