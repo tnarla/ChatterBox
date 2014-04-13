@@ -10,14 +10,40 @@
 
 @implementation HTTPUtil
 
-- (void) getHTTP:(NSString *)url withParams:(NSString *)params withCallback:(void (^)(NSString*))callback {
+- (void) getHTTPString:(NSString *)url withParams:(NSString *)params withCallback:(void (^)(NSString*))callback {
     _callback = callback;
-    NSMutableURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",url,params]]];
+    NSMutableURLRequest*  request;
+    if (![params  isEqual: @""]) {
+        request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",url,params]]];
+    } else {
+        request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",url]]];
+    }
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
-- (void) postHTTP:(NSString *)url withParams:(NSString *)params withCallback:(void (^)(NSString*))callback {
+- (void) postHTTPString:(NSString *)url withParams:(NSString *)params withCallback:(void (^)(NSString*))callback {
     _callback = callback;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    request.HTTPMethod = @"POST";
+    [request setValue:@"application/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    NSData* requestBodyData = [params dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = requestBodyData;
+    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+- (void) getHTTP:(NSString *)url withParams:(NSString *)params withCallback:(void (^)(NSData*))callback {
+    _dCallback = callback;
+    NSMutableURLRequest*  request;
+    if (![params  isEqual: @""]) {
+        request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",url,params]]];
+    } else {
+        request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",url]]];
+    }
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+- (void) postHTTP:(NSString *)url withParams:(NSString *)params withCallback:(void (^)(NSData*))callback {
+    _dCallback = callback;
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     request.HTTPMethod = @"POST";
     [request setValue:@"application/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -29,12 +55,10 @@
 #pragma mark NSURLConnection Delegate Methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"responsed");
     responseData = [[NSMutableData alloc] init];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSLog(@"got something");
     [responseData appendData:data];
 }
 
@@ -43,7 +67,11 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    _callback([[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]);
+    if (_callback != nil) {
+        _callback([[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]);
+    } else {
+        _dCallback([NSData dataWithData:responseData]);
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
