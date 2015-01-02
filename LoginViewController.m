@@ -5,9 +5,8 @@
 //  Created by Trushitha Narla on 3/31/14.
 //  Copyright (c) 2014 Trushitha Narla. All rights reserved.
 //
-
 #import "LoginViewController.h"
-#import "HTTPUtil.h"
+#import <Parse/Parse.h>
 
 @interface LoginViewController ()
 
@@ -15,94 +14,29 @@
 
 @implementation LoginViewController
 
-@synthesize usernameField,passwordField,loginView;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    loginView = [[FBLoginView alloc] init];
-    loginView.delegate = self;
-    [self.view addSubview:loginView];
+    self.navigationItem.hidesBackButton = YES;
 }
 
 
-- (BOOL)textFieldShouldReturn: (UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    
-    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
-    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
-    
-    // You can add your app-specific url handling code here if needed
-    return wasHandled;
-}
-
-- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
-    NSString *alertMessage, *alertTitle;
-    NSLog(@"%@",error);
-    // If the user should perform an action outside of you app to recover,
-    // the SDK will provide a message for the user, you just need to surface it.
-    // This conveniently handles cases like Facebook password change or unverified Facebook accounts.
-    if ([FBErrorUtility shouldNotifyUserForError:error]) {
-        alertTitle = @"Facebook error";
-        alertMessage = [FBErrorUtility userMessageForError:error];
-        
-        // This code will handle session closures that happen outside of the app
-        // You can take a look at our error handling guide to know more about it
-        // https://developers.facebook.com/docs/ios/errors
-    } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryAuthenticationReopenSession) {
-        alertTitle = @"Session Error";
-        alertMessage = @"Your current session is no longer valid. Please log in again.";
-        
-        // If the user has cancelled a login, we will do nothing.
-        // You can also choose to show the user a message if cancelling login will result in
-        // the user not being able to complete a task they had initiated in your app
-        // (like accessing FB-stored information or posting to Facebook)
-    } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
-        NSLog(@"user cancelled login");
-        
-        // For simplicity, this sample handles other errors with a generic message
-        // You can checkout our error handling guide for more detailed information
-        // https://developers.facebook.com/docs/ios/errors
-    } else {
-        alertTitle  = @"Something went wrong";
-        alertMessage = @"Please try again later.";
-        NSLog(@"Unexpected error:%@", error);
-    }
-    
-    if (alertMessage) {
-        [[[UIAlertView alloc] initWithTitle:alertTitle
-                                    message:alertMessage
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
-    }
-}
-
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
-    HTTPUtil* util = [HTTPUtil new];
-    NSString* url = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture",user.id];
-    [util getHTTP:url withParams:@"" withCallback:^(NSData* data) {
-        self.profPic.image = [UIImage imageWithData:data];
-    }];
-}
 
 - (IBAction)login:(id)sender {
     
-    NSString *usernameText = [self.usernameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *passwordText = [self.passwordField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *username = [self.username.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *password = [self.passwordField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-    if ([usernameText length] == 0 || [passwordText length] == 0) {
+    if ([username length] == 0 || [password length] == 0) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Make sure you enter a username and password!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        
         [alertView show];
-    } else {
-        /*[PFUser logInWithUsernameInBackground:usernameText password:passwordText block:^(PFUser *user, NSError *error) {
+    }
+    else {
+        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
             if (error) {
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:[error.userInfo objectForKey:@"error"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                 [alertView show];
@@ -110,9 +44,9 @@
             else {
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
-        }];*/
+            
+        }];
     }
+    
 }
-
-
 @end

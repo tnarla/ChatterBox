@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A3F80441904830500A4FBAB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A3F80431904830500A4FBAB /* Default-568h@2x.png */; };
 		8A43C06C18EB85B900CE10BD /* EditFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A43C06B18EB85B900CE10BD /* EditFriendsTableViewController.m */; };
 		8A43C06F18EB8E2200CE10BD /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A43C06E18EB8E2200CE10BD /* FriendsViewController.m */; };
+		8A46EF1918FA0898009D7420 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A46EF1818FA0898009D7420 /* FacebookSDK.framework */; };
 		8AB8EF4718EA4FCA00E40AD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB8EF4618EA4FCA00E40AD0 /* Foundation.framework */; };
 		8AB8EF4918EA4FCA00E40AD0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB8EF4818EA4FCA00E40AD0 /* CoreGraphics.framework */; };
 		8AB8EF4B18EA4FCA00E40AD0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB8EF4A18EA4FCA00E40AD0 /* UIKit.framework */; };
@@ -40,12 +42,8 @@
 		8AB8EF9A18EA66B100E40AD0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB8EF9118EA66B100E40AD0 /* SystemConfiguration.framework */; };
 		8AB8EF9D18EA693F00E40AD0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8EF9C18EA693F00E40AD0 /* LoginViewController.m */; };
 		8AB8EFA018EA695500E40AD0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8EF9F18EA695500E40AD0 /* SignUpViewController.m */; };
-		E502E72A18F906CA00A41C96 /* HTTPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E502E72918F906CA00A41C96 /* HTTPUtil.m */; };
-		E502E72D18F9B7B500A41C96 /* ChainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E502E72C18F9B7B500A41C96 /* ChainTableViewController.m */; };
 		E502E73018F9BCC100A41C96 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = E502E72E18F9BCC100A41C96 /* face.png */; };
 		E502E73118F9BCC100A41C96 /* face2.png in Resources */ = {isa = PBXBuildFile; fileRef = E502E72F18F9BCC100A41C96 /* face2.png */; };
-		E5AAC31F18F9C9A200147D76 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AAC31E18F9C9A200147D76 /* FacebookSDK.framework */; };
-		E5AAC32218F9E94F00147D76 /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AAC32118F9E94F00147D76 /* FriendsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +57,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A3F80431904830500A4FBAB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8A43C06A18EB85B900CE10BD /* EditFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditFriendsTableViewController.h; path = ../EditFriendsTableViewController.h; sourceTree = "<group>"; };
 		8A43C06B18EB85B900CE10BD /* EditFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditFriendsTableViewController.m; path = ../EditFriendsTableViewController.m; sourceTree = "<group>"; };
 		8A43C06D18EB8E2200CE10BD /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsViewController.h; path = ../FriendsViewController.h; sourceTree = "<group>"; };
 		8A43C06E18EB8E2200CE10BD /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsViewController.m; path = ../FriendsViewController.m; sourceTree = "<group>"; };
+		8A46EF1818FA0898009D7420 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		8AB8EF4318EA4FCA00E40AD0 /* ChatterBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatterBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB8EF4618EA4FCA00E40AD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8AB8EF4818EA4FCA00E40AD0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -102,15 +102,9 @@
 		8AB8EF9C18EA693F00E40AD0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
 		8AB8EF9E18EA695500E40AD0 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = ../SignUpViewController.h; sourceTree = "<group>"; };
 		8AB8EF9F18EA695500E40AD0 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = ../SignUpViewController.m; sourceTree = "<group>"; };
-		E502E72818F906CA00A41C96 /* HTTPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPUtil.h; sourceTree = "<group>"; };
-		E502E72918F906CA00A41C96 /* HTTPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPUtil.m; sourceTree = "<group>"; };
-		E502E72B18F9B7B500A41C96 /* ChainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainTableViewController.h; sourceTree = "<group>"; };
-		E502E72C18F9B7B500A41C96 /* ChainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainTableViewController.m; sourceTree = "<group>"; };
 		E502E72E18F9BCC100A41C96 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = ChatterBox/face.png; sourceTree = "<group>"; };
 		E502E72F18F9BCC100A41C96 /* face2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face2.png; path = ChatterBox/face2.png; sourceTree = "<group>"; };
 		E5AAC31E18F9C9A200147D76 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		E5AAC32018F9E94F00147D76 /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
-		E5AAC32118F9E94F00147D76 /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5AAC31F18F9C9A200147D76 /* FacebookSDK.framework in Frameworks */,
+				8A46EF1918FA0898009D7420 /* FacebookSDK.framework in Frameworks */,
 				8AB8EF9218EA66B100E40AD0 /* AudioToolbox.framework in Frameworks */,
 				8AB8EF9318EA66B100E40AD0 /* CFNetwork.framework in Frameworks */,
 				8AB8EF9418EA66B100E40AD0 /* CoreLocation.framework in Frameworks */,
@@ -150,6 +144,7 @@
 		8AB8EF3A18EA4FCA00E40AD0 = {
 			isa = PBXGroup;
 			children = (
+				8A3F80431904830500A4FBAB /* Default-568h@2x.png */,
 				8AB8EF8318EA51F100E40AD0 /* Images */,
 				8AB8EF7518EA4FEF00E40AD0 /* MainStoryboard.storyboard */,
 				8AB8EF4C18EA4FCA00E40AD0 /* ChatterBox */,
@@ -171,6 +166,7 @@
 		8AB8EF4518EA4FCA00E40AD0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A46EF1818FA0898009D7420 /* FacebookSDK.framework */,
 				E5AAC31E18F9C9A200147D76 /* FacebookSDK.framework */,
 				8AB8EF8918EA66B100E40AD0 /* AudioToolbox.framework */,
 				8AB8EF8A18EA66B100E40AD0 /* CFNetwork.framework */,
@@ -207,12 +203,6 @@
 				8AB8EF9C18EA693F00E40AD0 /* LoginViewController.m */,
 				8AB8EF5818EA4FCA00E40AD0 /* Images.xcassets */,
 				8AB8EF4D18EA4FCA00E40AD0 /* Supporting Files */,
-				E502E72818F906CA00A41C96 /* HTTPUtil.h */,
-				E502E72918F906CA00A41C96 /* HTTPUtil.m */,
-				E502E72B18F9B7B500A41C96 /* ChainTableViewController.h */,
-				E502E72C18F9B7B500A41C96 /* ChainTableViewController.m */,
-				E5AAC32018F9E94F00147D76 /* FriendsTableViewController.h */,
-				E5AAC32118F9E94F00147D76 /* FriendsTableViewController.m */,
 			);
 			path = ChatterBox;
 			sourceTree = "<group>";
@@ -253,8 +243,8 @@
 				E502E72F18F9BCC100A41C96 /* face2.png */,
 				8AB8EF7718EA51E000E40AD0 /* camera.png */,
 				8AB8EF7818EA51E000E40AD0 /* camera@2x.png */,
-				8AB8EF7918EA51E000E40AD0 /* friends.png */,
 				8AB8EF7A18EA51E000E40AD0 /* friends@2x.png */,
+				8AB8EF7918EA51E000E40AD0 /* friends.png */,
 				8AB8EF7B18EA51E000E40AD0 /* inbox.png */,
 				8AB8EF7C18EA51E000E40AD0 /* inbox@2x.png */,
 			);
@@ -344,6 +334,7 @@
 				8AB8EF8018EA51E000E40AD0 /* friends@2x.png in Resources */,
 				E502E73118F9BCC100A41C96 /* face2.png in Resources */,
 				8AB8EF7E18EA51E000E40AD0 /* camera@2x.png in Resources */,
+				8A3F80441904830500A4FBAB /* Default-568h@2x.png in Resources */,
 				8AB8EF8118EA51E000E40AD0 /* inbox.png in Resources */,
 				8AB8EF5118EA4FCA00E40AD0 /* InfoPlist.strings in Resources */,
 				E502E73018F9BCC100A41C96 /* face.png in Resources */,
@@ -368,14 +359,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E502E72D18F9B7B500A41C96 /* ChainTableViewController.m in Sources */,
 				8AB8EF9D18EA693F00E40AD0 /* LoginViewController.m in Sources */,
 				8AB8EFA018EA695500E40AD0 /* SignUpViewController.m in Sources */,
 				8A43C06F18EB8E2200CE10BD /* FriendsViewController.m in Sources */,
-				E502E72A18F906CA00A41C96 /* HTTPUtil.m in Sources */,
 				8A43C06C18EB85B900CE10BD /* EditFriendsTableViewController.m in Sources */,
 				8AB8EF8618EA575600E40AD0 /* InboxViewControllerTableViewController.m in Sources */,
-				E5AAC32218F9E94F00147D76 /* FriendsTableViewController.m in Sources */,
 				8AB8EF5718EA4FCA00E40AD0 /* AppDelegate.m in Sources */,
 				8AB8EF5318EA4FCA00E40AD0 /* main.m in Sources */,
 			);
@@ -498,10 +486,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					/Users/them/Documents/FacebookSDK,
+					/Users/tnarla/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChatterBox/ChatterBox-Prefix.pch";
 				INFOPLIST_FILE = "ChatterBox/ChatterBox-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -517,10 +507,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					/Users/them/Documents/FacebookSDK,
+					/Users/tnarla/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChatterBox/ChatterBox-Prefix.pch";
 				INFOPLIST_FILE = "ChatterBox/ChatterBox-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

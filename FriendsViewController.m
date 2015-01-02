@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Trushitha Narla. All rights reserved.
 //
 
+
 #import "FriendsViewController.h"
 #import "EditFriendsTableViewController.h"
 
@@ -20,7 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    /*self.friendsRelation = [[PFUser currentUser] objectForKey:@"friendsRelation"];
+    self.friendsRelation = [[PFUser currentUser] objectForKey:@"friendsRelation"];
     PFQuery *query = [self.friendsRelation query];
     [query orderByAscending:@"username"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -31,8 +32,8 @@
             self.friends = objects;
             [self.tableView reloadData];
         }
-    }];*/
-  
+    }];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -46,7 +47,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+    
     // Return the number of sections.
     return 1;
 }
@@ -63,8 +64,8 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    /*PFUser *user = [self.friends objectAtIndex:indexPath.row];
-    cell.textLabel.text = user.username;*/
+    PFUser *user = [self.friends objectAtIndex:indexPath.row];
+    cell.textLabel.text = user.username;
     
     return cell;
 }

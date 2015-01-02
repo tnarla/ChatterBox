@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface InboxViewControllerTableViewController : UITableViewController
 - (IBAction)logout:(id)sender;
+
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 
 @end

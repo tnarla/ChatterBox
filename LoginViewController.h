@@ -7,19 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate,FBLoginViewDelegate>
-{
-    NSMutableData *responseData;
-}
+@interface LoginViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UIImageView *profPic;
-@property (strong, nonatomic) IBOutlet FBLoginView *loginView;
-
-- (BOOL)textFieldShouldReturn: (UITextField *)textField;
 - (IBAction)login:(id)sender;
 
 @end
